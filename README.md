@@ -42,7 +42,7 @@ Desarrollo de una API-REST, la cual consiste en el manejo y persistencia de las 
 
 Para consumir el API correctamente tener en cuenta las rutas determinadas en la logica del negocio del hospital.
 
----
+----
 
 
 #### *Doctores*
@@ -65,7 +65,7 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
 
 ```
 
----
+-----
 
 #### *Pacientes*
 ```http
@@ -86,7 +86,7 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
     } 
 
 ```
----
+-----
 #### *Telefono - Paciente*
 ```http
   GET      /api/telefono
@@ -103,7 +103,7 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
     }
 
 ```
-----------------------------------------
+-----
 
 #### *Consultorio*
 ```http
@@ -120,6 +120,7 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
         "direccionConsultorio":"Carrera 9 sur - Sanitas"
     }
 ```
+-----
 
 #### *Especializacion*
 ```http
@@ -137,7 +138,7 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
     }
 ```
 
-
+-----
 #### *Cita*
 ```http
   GET      /api/cita   

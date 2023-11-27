@@ -1,22 +1,21 @@
 import { RequestHandler } from "express";
 import { Consultorio } from '../models/consultorio.models';
-import { SUCCESS_MESSAGE,ERROR_MESSAGE,FAILURE_MESSAGE } from '../errors/messages';
+import {  sendSuccessResponse,sendErrorResponse,sendErrorServer } from '../errors/messages';
 
 export const getConsultorios: RequestHandler = async (req, res) => {
     try{
 
         const consultorio = await Consultorio.findAll();
-        res.status(200).json({
-            message:SUCCESS_MESSAGE,
-            data: consultorio
-        });
+
+        if(consultorio){
+            sendSuccessResponse(res,consultorio,200);
+        }else{
+            sendErrorResponse(res);
+        }
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-            error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -25,40 +24,26 @@ export const getConsultorioById: RequestHandler = async (req, res) => {
         const consultorio = await Consultorio.findByPk(req.params.id);
         if(consultorio)
         {
-            res.status(200).json({
-                message:SUCCESS_MESSAGE,
-                data: consultorio
-            });
+            sendSuccessResponse(res,consultorio,200)
         }else{
-            res.status(404).json({
-                message:FAILURE_MESSAGE
-            });
+            sendErrorResponse(res)
         }
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-            error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
 export const createConsultorio: RequestHandler = async (req, res) => {
     try{
         const consultorio = await Consultorio.create(req.body);
-   
-            res.status(201).json({
-                message:SUCCESS_MESSAGE,
-                data: consultorio
-            });
+        
+        sendSuccessResponse(res,consultorio,201)
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-             error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -73,21 +58,14 @@ export const updateConsultorio: RequestHandler = async (req, res) => {
                     id_consultorio: req.params.id
                 }
             });
-            res.status(200).json({
-                message:SUCCESS_MESSAGE
-            });
+            sendSuccessResponse(res,consultorio,200)
         }else{
-            res.status(404).json({
-                message:FAILURE_MESSAGE
-            });
+            sendErrorResponse(res)
         }
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-            error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -102,21 +80,13 @@ export const deleteConsultorio: RequestHandler = async (req, res) => {
                     id_consultorio: req.params.id
                 }
             });
-            res.status(200).json({
-                message:SUCCESS_MESSAGE,
-                data: consultorio
-            });
+            sendSuccessResponse(res,consultorio,200)
         }else{
-            res.status(404).json({
-                message:FAILURE_MESSAGE
-            });
+            sendErrorResponse(res)
         }
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({  
-            message:ERROR_MESSAGE,
-            error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }

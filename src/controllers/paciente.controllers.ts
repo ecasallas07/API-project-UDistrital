@@ -1,22 +1,16 @@
 import { RequestHandler } from "express";
 import { Paciente } from '../models/paciente.models';
-import { SUCCESS_MESSAGE,ERROR_MESSAGE,FAILURE_MESSAGE } from '../errors/messages';
+import { sendSuccessResponse,sendErrorResponse,sendErrorServer } from '../errors/messages';
 
 export const getPacientes: RequestHandler = async (req, res) => {
     try{
 
         const pacientes = await Paciente.findAll();
-        res.status(200).json({
-            message:SUCCESS_MESSAGE,
-            data: pacientes
-        });
+        sendSuccessResponse(res,pacientes,200)
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-             error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -25,22 +19,14 @@ export const getPacientesById: RequestHandler = async (req, res) => {
         const paciente = await Paciente.findByPk(req.params.id);
         if(paciente)
         {
-            res.status(200).json({
-                message:SUCCESS_MESSAGE,
-                data: paciente
-            });
+            sendSuccessResponse(res,paciente,200)
         }else{
-            res.status(404).json({
-                message:FAILURE_MESSAGE
-            });
+            sendErrorResponse(res)
         }
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-             error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -48,17 +34,11 @@ export const createPaciente: RequestHandler = async (req, res) => {
     try{
         const paciente = await Paciente.create(req.body);
    
-            res.status(201).json({
-                message:SUCCESS_MESSAGE,
-                data: paciente
-            });
+        sendSuccessResponse(res,paciente,201)
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-             error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -73,21 +53,14 @@ export const updatePaciente: RequestHandler = async (req, res) => {
                     id_numeroCedula: req.params.id
                 }
             });
-            res.status(200).json({
-                message:SUCCESS_MESSAGE
-            });
+            sendSuccessResponse(res,paciente,200)
         }else{
-            res.status(404).json({
-                message:FAILURE_MESSAGE
-            });
+            sendErrorResponse(res)
         }
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-            error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -102,21 +75,13 @@ export const deletePaciente: RequestHandler = async (req, res) => {
                     id_numeroCedula: req.params.id
                 }
             });
-            res.status(200).json({
-                message:SUCCESS_MESSAGE,
-                data: paciente
-            });
+            sendSuccessResponse(res,paciente,200)
         }else{
-            res.status(404).json({
-                message:FAILURE_MESSAGE
-            });
+            sendErrorResponse(res)
         }
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-            error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }

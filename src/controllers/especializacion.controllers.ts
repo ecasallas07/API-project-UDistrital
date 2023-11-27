@@ -1,22 +1,16 @@
 import { RequestHandler } from "express";
 import { Especializacion } from '../models/especializacion.models';
-import { SUCCESS_MESSAGE,ERROR_MESSAGE,FAILURE_MESSAGE } from '../errors/messages';
+import { sendSuccessResponse,sendErrorResponse,sendErrorServer } from '../errors/messages';
 
 export const getEspecialidades: RequestHandler = async (req, res) => {
     try{
 
         const especializacion = await Especializacion.findAll();
-        res.status(200).json({
-            message:SUCCESS_MESSAGE,
-            data: especializacion
-        });
+        sendSuccessResponse(res,especializacion,200)
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-             error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -25,22 +19,14 @@ export const getEspecialidadById: RequestHandler = async (req, res) => {
         const especialidad = await Especializacion.findByPk(req.params.id);
         if(especialidad)
         {
-            res.status(200).json({
-                message:SUCCESS_MESSAGE,
-                data: especialidad
-            });
+            sendSuccessResponse(res,especialidad,200)
         }else{
-            res.status(404).json({
-                message:FAILURE_MESSAGE
-            });
+            sendErrorResponse(res)
         }
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-             error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -48,17 +34,11 @@ export const createEspecialidad: RequestHandler = async (req, res) => {
     try{
         const especialidad = await Especializacion.create(req.body);
    
-            res.status(201).json({
-                message:SUCCESS_MESSAGE,
-                data: especialidad
-            });
+        sendSuccessResponse(res,especialidad,201)
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-             error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -73,21 +53,14 @@ export const updateEspecialidad: RequestHandler = async (req, res) => {
                     id_especializacion: req.params.id
                 }
             });
-            res.status(200).json({
-                message:SUCCESS_MESSAGE
-            });
+            sendSuccessResponse(res,especialidad,200)
         }else{
-            res.status(404).json({
-                message:FAILURE_MESSAGE
-            });
+            sendErrorResponse(res)
         }
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-            error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }
 
@@ -102,21 +75,13 @@ export const deleteEspecialidad: RequestHandler = async (req, res) => {
                     id_especializacion: req.params.id
                 }
             });
-            res.status(200).json({
-                message:SUCCESS_MESSAGE,
-                data: especialidad
-            });
+            sendSuccessResponse(res,especialidad,200)
         }else{
-            res.status(404).json({
-                message:FAILURE_MESSAGE
-            });
+            sendErrorResponse(res)
         }
 
     }catch(error){
         const err = error as Error;
-        res.status(500).json({
-            message:ERROR_MESSAGE,
-            error: err.message
-        })
+        sendErrorServer(res,err)
     }
 }

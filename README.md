@@ -42,9 +42,8 @@ Desarrollo de una API-REST, la cual consiste en el manejo y persistencia de las 
 
 Para consumir el API correctamente tener en cuenta las rutas determinadas en la logica del negocio del hospital.
 
----
----
----
+----
+
 
 #### *Doctores*
 ```http
@@ -66,9 +65,8 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
 
 ```
 
----
----
----
+-----
+
 #### *Pacientes*
 ```http
   GET      /api/pacientes
@@ -88,6 +86,7 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
     } 
 
 ```
+-----
 #### *Telefono - Paciente*
 ```http
   GET      /api/telefono
@@ -104,8 +103,8 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
     }
 
 ```
-----------------------------------------
-----------------------------------------
+-----
+
 #### *Consultorio*
 ```http
   GET      /api/consultorio
@@ -121,8 +120,8 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
         "direccionConsultorio":"Carrera 9 sur - Sanitas"
     }
 ```
----
----
+-----
+
 #### *Especializacion*
 ```http
   GET      /api/especialidad   
@@ -138,9 +137,8 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
         "descripcion":"Medicina especializada"
     }
 ```
----
----
 
+-----
 #### *Cita*
 ```http
   GET      /api/cita   
@@ -159,8 +157,6 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
         "id_consultorio":"101"
     } 
 ```
----
----
 
 
 | Parameter | Type     | Description                |
@@ -168,10 +164,8 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
 | `api_key` | `string` | **Required**. Your API key |
 
 -----
------
-----
-----
------
+
+
 ### Ejemplo para el uso de parametros
 #### Get item {id} 
 

@@ -2,8 +2,17 @@
 # Hospital - API
 
 Desarrollo de una API-REST, la cual consiste en el manejo y persistencia de las citas que un hospital realiza, y que tiene como base el modelo *cliente-servidor*.
+Este es un aplicativo web (REST API) que por medio de formularios reciba la informacion de pacientes y doctores, los alamacenen en una base de datos, en este caso el aplicativo va a permititr realizar las operaciones bases CRUD sobre los datos:
+**tambien se especifica el metodo de rutas correspondiente**
+-- *Create = post* 
+-- *Read = get*
+-- *Update = put*
+-- *Delete = delete*
 
-## Install
+
+## INSTALL
+Para usar el proyecto en su repositorio local, siga cuidadosamente las indicaciones, teniendo en cuenta que debe clonar el repositorio
+inicialmente, luego siga las instrucciones indicadas:
 
 - Inicializar el proyecto
 ```code
@@ -33,17 +42,28 @@ Desarrollo de una API-REST, la cual consiste en el manejo y persistencia de las 
 ```code
     npx tsc --init
 ```
-## API REST- CONSULTORIO
 
+## TECNOLOGIAS
+Las tecnologias que se usaron en el proyecto fueron las siguientes:
+- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> Typescript
+- Sequelize
+- Postman
+- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> Express
+- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> Node.js
+- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> MySQL
+- <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> Git
+
+
+## API REST- CONSULTORIO
+*El modelo de datos se realizo, bajo el modelo entidad relacion, el cual constituye un flujo de datos estruturado y basado en la integridad referencial de las entidades.*
 ![Diagrama](database_hospital.png)
 
 
-#### Rutas principales
+#### RUTAS API
 
 Para consumir el API correctamente tener en cuenta las rutas determinadas en la logica del negocio del hospital.
 
 ----
-
 
 #### *Doctores*
 ```http
@@ -159,13 +179,6 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
 ```
 
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
-
------
-
-
 ### Ejemplo para el uso de parametros
 #### Get item {id} 
 
@@ -177,5 +190,8 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `int` | **Required**. Id del recurso |
 
-
-
+-----
+### PRUEBAS - API
+-- Citas
+*get cita*
+![Citas](pruebas-citas/cita_get_01.png)

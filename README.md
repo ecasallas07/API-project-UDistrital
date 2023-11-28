@@ -192,6 +192,31 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
 
 -----
 ### PRUEBAS - API
--- Citas
-*get cita*
+----
+# Citas
+- get cita
 ![Citas](pruebas-citas/cita_get_01.png)
+
+- get cita :id
+![Citas](pruebas-citas/get_cita_id.png)
+
+- get cita :doctores
+![Citas](pruebas-citas/get_cita_doctor.png)
+
+- get cita :pacientes
+![Citas](pruebas-citas/get_cita_paciente.png)
+
+- get cita :especializacion
+![Citas](pruebas-citas/get_cita_especialidad.png)
+
+- post cita
+![Citas](pruebas-citas/post_cita.png)
+
+- put cita
+![Citas](pruebas-citas/put_cita.png)
+
+
+
+
+
+

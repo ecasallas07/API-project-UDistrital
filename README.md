@@ -201,7 +201,7 @@ Para consumir la API correctamente tener en cuenta las rutas determinadas en la 
 
 -----
 ### PRUEBAS - API
-----
+
 # Citas
 - get cita
 

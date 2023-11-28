@@ -3,6 +3,14 @@
 
 ### dotenv ###
 .env
+### images ###
+
+pruebas-citas
+pruebas-consultorio
+pruebas-doctores
+pruebas-especializacion
+pruebas-pacientes
+pruebas-telefono
 
 ### Node ###
 # Logs

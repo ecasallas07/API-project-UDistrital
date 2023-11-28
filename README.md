@@ -2,15 +2,20 @@
 # Hospital - API
 
 Desarrollo de una API-REST, la cual consiste en el manejo y persistencia de las citas que un hospital realiza, y que tiene como base el modelo *cliente-servidor*.
-Este es un aplicativo web (REST API) que por medio de formularios reciba la informacion de pacientes y doctores, los alamacenen en una base de datos, en este caso el aplicativo va a permititr realizar las operaciones bases CRUD sobre los datos:
-**tambien se especifica el metodo de rutas correspondiente**
--- *Create = post* 
--- *Read = get*
--- *Update = put*
--- *Delete = delete*
+Este es un aplicativo web (REST API) que por medio de formularios reciba la información de pacientes y doctores, los almacenen en una base de datos, en este caso el aplicativo va a permitir realizar las operaciones bases CRUD sobre los datos:
+
+**También se especifica el método de rutas correspondiente**
+
+- *Create = post* 
+
+- *Read = get*
+
+- *Update = put*
+
+- *Delete = delete*
 
 
-## INSTALL
+## INSTALACIÓN - CONFIGURACIÓN
 Para usar el proyecto en su repositorio local, siga cuidadosamente las indicaciones, teniendo en cuenta que debe clonar el repositorio
 inicialmente, luego siga las instrucciones indicadas:
 
@@ -42,9 +47,13 @@ inicialmente, luego siga las instrucciones indicadas:
 ```code
     npx tsc --init
 ```
+- Crear el fichero .env *(Variables de entorno para la base de datos )*
+```code
+    .env
+```
 
-## TECNOLOGIAS
-Las tecnologias que se usaron en el proyecto fueron las siguientes:
+## TECNOLOGÍAS
+Las tecnologías que se usaron en el proyecto fueron las siguientes:
 - <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> Typescript
 - Sequelize
 - Postman
@@ -55,13 +64,13 @@ Las tecnologias que se usaron en el proyecto fueron las siguientes:
 
 
 ## API REST- CONSULTORIO
-*El modelo de datos se realizo, bajo el modelo entidad relacion, el cual constituye un flujo de datos estruturado y basado en la integridad referencial de las entidades.*
+*El modelo de datos se realizó, bajo el modelo entidad relación, el cual constituye un flujo de datos estructurado y basado en la integridad referencial de las entidades.*
 ![Diagrama](database_hospital.png)
 
 
 #### RUTAS API
 
-Para consumir el API correctamente tener en cuenta las rutas determinadas en la logica del negocio del hospital.
+Para consumir la API correctamente tener en cuenta las rutas determinadas en la lógica del negocio del hospital..
 
 ----
 
@@ -107,7 +116,7 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
 
 ```
 -----
-#### *Telefono - Paciente*
+#### *Teléfono - Paciente*
 ```http
   GET      /api/telefono
   GET      /api/telefono/{id}
@@ -142,7 +151,7 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
 ```
 -----
 
-#### *Especializacion*
+#### *Especialización*
 ```http
   GET      /api/especialidad   
   GET      /api/especialidad/{id}
@@ -186,7 +195,7 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
   GET /api/consultorio/${id}
 ```
 
-| Parameter | Type     | Description                       |
+| Parámetro | Tipo     | Descripción                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `int` | **Required**. Id del recurso |
 
@@ -210,7 +219,7 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
 
 ![Citas](pruebas-citas/get_cita_paciente.png)
 
-- get cita :especializacion
+- get cita :especialización
 
 ![Citas](pruebas-citas/get_cita_especialidad.png)
 
@@ -218,8 +227,134 @@ Para consumir el API correctamente tener en cuenta las rutas determinadas en la 
 
 ![Citas](pruebas-citas/post_cita.png)
 
-- put cita
+- put cita :id
+
 ![Citas](pruebas-citas/put_cita.png)
+
+----
+# Consultorio
+
+- get consultorio
+
+![Consultorio](pruebas-consultorio/consultorio_get.png)
+
+- get consultorio :id
+
+![Consultorio](pruebas-consultorio/consultorio_get_id.png)
+
+- post consultorio
+
+![Consultorio](pruebas-consultorio/consultorio_post.png)
+
+- put consultorio :id
+
+![Consultorio](pruebas-consultorio/consultorio_put.png)
+![Consultorio](pruebas-consultorio/consultorio_put_01.png)
+
+- delete consultorio
+
+![Consultorio](pruebas-consultorio/consultorio_delete.png)
+![Consultorio](pruebas-consultorio/consultorio_delete_01.png)
+
+----
+# Doctores
+
+- get doctores
+
+![doctor](pruebas-doctores/doctores_get.png)
+
+- get doctores :id
+
+![doctor](pruebas-doctores/doctores_get_id.png)
+
+- post doctores
+
+![doctor](pruebas-doctores/doctores_post.png)
+
+- put doctores :id
+
+![doctor](pruebas-doctores/doctores_put.png)
+![doctor](pruebas-doctores/doctores_put_01.png)
+
+- delete doctores
+
+![doctor](pruebas-doctores/doctores_delete.png)
+![doctor](pruebas-doctores/doctores_delete_01.png)
+
+
+----
+# Especialización
+
+- get especialización
+
+![especialidad](pruebas-especializacion/especializacion_get.png)
+
+- get especialización :id
+
+![especialidad](pruebas-especializacion/especializacion_get_id.png)
+
+- post especialización 
+
+![especialidad](pruebas-especializacion/especializacion_post.png)
+
+- put especialización :id
+
+![especialidad](pruebas-especializacion/especializacion_put_id.png)
+![especialidad](pruebas-especializacion/especializacion_put_id_01.png)
+
+- delete especialización
+
+![especialidad](pruebas-especializacion/especializacion_delete.png)
+![especialidad](pruebas-especializacion/especializacion_delete_01.png)
+
+----
+# Pacientes
+
+- get pacientes
+
+![paciente](pruebas-pacientes/pacientes_get.png)
+
+- get pacientes :id
+
+![paciente](pruebas-pacientes/pacientes_get_id.png)
+
+- post pacientes
+
+![paciente](pruebas-pacientes/pacientes_post.png)
+
+- put pacientes :id
+
+![paciente](pruebas-pacientes/pacientes_put.png)
+![paciente](pruebas-pacientes/pacientes_put_01.png)
+
+- delete pacientes
+
+![paciente](pruebas-pacientes/pacientes_delete.png)
+
+----
+# Pacientes - Teléfono
+
+- get Teléfono 
+
+![telefono](pruebas-telefono/telefono_get.png)
+
+- get Teléfono :id
+
+![telefono](pruebas-telefono/telefono_get_id.png)
+
+- post Teléfono
+
+![telefono](pruebas-telefono/telefono_post.png)
+
+- put Teléfono :id
+
+![telefono](pruebas-telefono/telefono_put_id.png)
+![telefono](pruebas-telefono/telefono_put_01.png)
+
+- delete Teléfono
+
+![telefono](pruebas-telefono/telefono_delete.png)
+
 
 
 
